@@ -6,10 +6,7 @@ import com.demo.ui.test.factories.ArticlePageObjectFactory;
 import com.demo.ui.test.factories.MyListsPageObjectFactory;
 import com.demo.ui.test.factories.NavigationUIFactory;
 import com.demo.ui.test.factories.SearchPageObjectFactory;
-import com.demo.ui.test.pageobjects.ArticlePageObject;
-import com.demo.ui.test.pageobjects.MyListsPageObject;
-import com.demo.ui.test.pageobjects.NavigationUI;
-import com.demo.ui.test.pageobjects.SearchPageObject;
+import com.demo.ui.test.pageobjects.*;
 import org.testng.annotations.Test;
 
 import static com.demo.ui.test.DeviceCapabilities.devicePlatform;
@@ -20,60 +17,10 @@ public class MyListTests extends CoreTestCase {
     private static final String search_input = "Asics";
 //    private static final String article_results_substring = "Java (programming language)";
     private static final String article_results_substring = "Japanese athletic equipment company";
+//    private static final String article_results_substring = "Asics";
     private static final String name_of_folder = "Read later";
-
-    /*
-    @Test
-    public void testSaveFirstArticleToMyListOriginal()
-    {
-        SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
-
-        SearchPageObject.initSearchInput();
-        SearchPageObject.typeSearchLine("Java");
-        SearchPageObject.clickByArticleWithSubstring("bject-oriented programming language");
-
-        ArticlePageObject ArticlePageObject = ArticlesPageObjectFactory.get(driver);
-        ArticlePageObject.waitForTitleElement();
-        String article_title = ArticlePageObject.getArticleTitle();
-
-        if(Platform.getInstance().isAndroid()){
-            ArticlePageObject.addArticleToMyList(name_of_folder);
-        } else {
-            ArticlePageObject.addArticlesToMySaved();
-        }
-        if (Platform.getInstance().isMW()) {
-            AuthorizationPageObject Auth = new AuthorizationPageObject(driver);
-            Auth.clickAuthButton();
-            Auth.enterLoginData(login, password);
-            Auth.submitForm();
-
-            ArticlePageObject.waitForTitleElement();
-
-//
-//            assertEquals("We are not on the same page after login",
-//                    article_title,
-//                    ArticlePageObject.getArticleTitle()
-//            );
-//
-            ArticlePageObject.addArticlesToMySaved();
-        }
-        ArticlePageObject.closeArticle();
-
-        NavigationUI NavigationUI = NavigationUIFactory.get(driver);
-        NavigationUI.openNavigation();
-        NavigationUI.clickMyList();
-
-        MyListsPageObjectFactory MyListPageObject = MyListsPageObjectFactory.get(driver);
-
-        if(Platform.getInstance().isAndroid()){
-            MyListPageObject.openFolderByName(name_of_folder);
-        }
-
-        MyListPageObject.swipeByArticleToDelete(article_title);
-    }
-
-     */
-
+    private static final String username = "rodionovmax90";
+    private static final String password = "gmiv0ak4";
 
     @Test
     public void saveArticleToMyListAndDelete() {
@@ -100,6 +47,8 @@ public class MyListTests extends CoreTestCase {
          */
 
         ArticlePageObject ArticlePageObject = ArticlePageObjectFactory.get(driver);
+        ArticlePageObject.waitForTitleElement();
+        String article_title = ArticlePageObject.getArticleTitle();
 
         if (devicePlatform.equals(DeviceCapabilities.DevicePlatform.ANDROID)) {
             System.out.println("Platform was identified as: " + devicePlatform);
@@ -109,25 +58,17 @@ public class MyListTests extends CoreTestCase {
             ArticlePageObject.addArticlesToMySaved();
         }
         if (devicePlatform.equals(DeviceCapabilities.DevicePlatform.MOBILE_WEB)) {
-//            AuthorizationPageObject Auth = new AuthorizationPageObject(driver);
-//            Auth.clickAuthButton();
-//            Auth.enterLoginData(login, password);
-//            Auth.submitForm();
-//
-//            ArticlePageObject.waitForTitleElement();
+            AuthorizationPageObject Auth = new AuthorizationPageObject(driver);
+            Auth.clickAuthButton();
+            Auth.enterLoginData(username, password);
+            Auth.submitForm();
 
-//
-//            assertEquals("We are not on the same page after login",
-//                    article_title,
-//                    ArticlePageObject.getArticleTitle()
-//            );
-//
             ArticlePageObject.addArticlesToMySaved();
         }
 
         if (devicePlatform.equals(DeviceCapabilities.DevicePlatform.IOS)) {
             if (ArticlePageObject.isLoginToSyncPopupAppears()) {
-                ArticlePageObject.loginToSyncSavedArticles("Rodionovmax90", "gmiv0ak4");
+                ArticlePageObject.loginToSyncSavedArticles(username, password);
             }
             if (ArticlePageObject.isEnableSyncingPopupAppears()) {
                 ArticlePageObject.clickEnableSyncing();
@@ -141,6 +82,7 @@ public class MyListTests extends CoreTestCase {
         ArticlePageObject.closeArticle();
 
         NavigationUI NavigationUI = NavigationUIFactory.get(driver);
+        NavigationUI.openNavigation();
         NavigationUI.ClickMyList();
 
         MyListsPageObject MyListsPageObject = MyListsPageObjectFactory.get(driver);
@@ -148,7 +90,8 @@ public class MyListTests extends CoreTestCase {
         if(devicePlatform.equals(DeviceCapabilities.DevicePlatform.ANDROID)){
             MyListsPageObject.openFolderByName(name_of_folder);
         }
-        MyListsPageObject.swipeByArticleToDelete(article_results_substring);
+//        MyListsPageObject.swipeByArticleToDelete(article_results_substring);
+        MyListsPageObject.swipeByArticleToDelete(article_title);
 
         if(devicePlatform.equals(DeviceCapabilities.DevicePlatform.ANDROID)){
             MyListsPageObject.deleteArticlesFolder();

@@ -10,6 +10,8 @@ public class iOSArticlePageObject extends ArticlePageObject {
     //    SEARCH_INPUT = By.id("Java (programming language)");
         SEARCH_INPUT = "{SUBSTRING}";
     //    OPTIONS_ADD_TO_MY_LIST_BUTTON = By.id("Save for later");
+        TITLE = By.id("Asics");
+//        ARTICLE_TITLE_TPL = "{TITLE}";
         OPTIONS_ADD_TO_MY_LIST_BUTTON = By.xpath("//XCUIElementTypeButton[@name='Save for later']");
 //        LOGIN_TO_SYNC_BUTTON = By.id("Log in to sync your saved articles");
 //        ENABLE_SYNCING_BUTTON = By.id("Enable syncing");

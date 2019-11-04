@@ -44,22 +44,22 @@
         </classes>
     </test>
 
-<!--    <test name="Mobile Web">-->
-<!--        <parameter name="platform" value="mobile_web"/>-->
-<!--&lt;!&ndash;        <parameter name="device" value = "null"/>&ndash;&gt;-->
-<!--&lt;!&ndash;        <parameter name="os_version" value="null"/>&ndash;&gt;-->
-<!--        <groups>-->
-<!--            <run>-->
-<!--            </run>-->
-<!--        </groups>-->
-<!--        <classes>-->
-<!--            <class name="com.demo.ui.test.tests.MyListTests">-->
-<!--                <methods>-->
-<!--                    <include name="findHowToUsePlatformVars" />-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Mobile Web">
+        <parameter name="platform" value="mobile_web"/>
+<!--        <parameter name="device" value = "null"/>-->
+<!--        <parameter name="os_version" value="null"/>-->
+        <groups>
+            <run>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.demo.ui.test.tests.MyListTests">
+                <methods>
+                    <include name="saveArticleToMyListAndDelete" />
+                </methods>
+            </class>
+        </classes>
+    </test>
 
 
 

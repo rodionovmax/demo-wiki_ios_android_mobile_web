@@ -22,6 +22,7 @@ public class MyListsPageObject extends MainPageObject {
     }
 
     public static String ARTICLE_BY_TITLE_TPL;
+    public static String REMOVE_FROM_SAVED_BUTTON;
     public static By FOLDER_OPTIONS;
     public static By DELETE_FOLDER;
 
@@ -51,6 +52,11 @@ public class MyListsPageObject extends MainPageObject {
         return ARTICLE_BY_TITLE_TPL.replace("{TITLE}", article_title);
     }
 
+    private static String getRemoveButtonByTitle(String article_title)
+    {
+        return REMOVE_FROM_SAVED_BUTTON.replace("{TITLE}", article_title);
+    }
+
     public void openFolderByName(String name_of_folder) {
         By folder_name_xpath = By.xpath("//*[@text='" + name_of_folder +"']");
         waitForElementAndClick(folder_name_xpath,5);
@@ -68,11 +74,20 @@ public class MyListsPageObject extends MainPageObject {
         // Perform swipe
         if (devicePlatform.equals(DeviceCapabilities.DevicePlatform.IOS) || devicePlatform.equals(DeviceCapabilities.DevicePlatform.ANDROID)) {
             elementSwipeToTheLeft(locator, 0.3, 600);
+        } else {
+            // If platform is Mobile Web - click unwatch button
+            String remove_locator = getRemoveButtonByTitle(article_title);
+            waitForElementAndClick(By.xpath(remove_locator), 2);
         }
 
         // If platform is iOS we need to do additional tap for deletion
         if (devicePlatform.equals(DeviceCapabilities.DevicePlatform.IOS)) {
             clickDeleteArticleIcon(article_title);
+        }
+
+        // If platform is Mobile Web - refresh browser for article to disappear
+        if (devicePlatform.equals(DeviceCapabilities.DevicePlatform.MOBILE_WEB)) {
+            driver.navigate().refresh();
         }
 
         // Checking that article was deleted

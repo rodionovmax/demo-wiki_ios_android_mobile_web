@@ -18,7 +18,10 @@ public class ArticlePageObject extends MainPageObject {
     protected static String SEARCH_INPUT;
     protected static By OPTIONS_BUTTON;
 //    public static final By OPTIONS_ADD_TO_MY_LIST_BUTTON = By.id("Save for later");
+    public static By TITLE;
+//    public static String ARTICLE_TITLE_TPL;
     public static By OPTIONS_ADD_TO_MY_LIST_BUTTON;
+    public static By OPTIONS_REMOVE_FROM_MY_LIST_BUTTON;
     public static By ADD_TO_MY_LIST_OVERLAY;
     public static By CREATE_NEW_READING_LIST;
     public static By MY_LIST_NAME_INPUT;
@@ -29,18 +32,40 @@ public class ArticlePageObject extends MainPageObject {
     public static final By ADD_ARTICLES_TO_READING_LIST = By.id("Yes, add them to my reading lists");
     public static By CLOSE_ARTICLE_BUTTON;
 
-    public WebElement waitForTitleOfArticle(String input) {
+//    public WebElement waitForTitleOfArticle(String input) {
+//
+//        String article_title = getArticleTitle(input);
+//        By locator = By.xpath("//XCUIElementTypeStaticText[@name='" + article_title+ "']");
+//        return waitForManyElementsPresent(locator, 5).get(0);
+//    }
+//
+//    public static String getArticleTitle(String substring) {
+//        return SEARCH_INPUT.replace("{SUBSTRING}", substring);
+//    }
 
-        String article_title = getArticleTitle(input);
-        By locator = By.xpath("//XCUIElementTypeStaticText[@name='" + article_title+ "']");
-        return waitForManyElementsPresent(locator, 5).get(0);
+    public WebElement waitForTitleElement() {
+//        if (devicePlatform.equals(DeviceCapabilities.DevicePlatform.IOS)) {
+//            String title = getArticleStringByTitle(article_title);
+//            return waitForElementPresent(By.id(title), 5);
+//        }
+        return waitForElementPresent(TITLE, 5);
     }
 
-    public static String getArticleTitle(String substring) {
-        return SEARCH_INPUT.replace("{SUBSTRING}", substring);
-    }
+//    private String getArticleStringByTitle(String article_title)
+//    {
+//        return ARTICLE_TITLE_TPL.replace("{TITLE}", article_title);
+//    }
 
-    // Method for Android - add when will be working with test for Android
+    public String getArticleTitle() {
+        WebElement title_element = waitForTitleElement();
+        if (devicePlatform.equals(DeviceCapabilities.DevicePlatform.ANDROID)) {
+            return title_element.getAttribute("text");
+        } else if (devicePlatform.equals(DeviceCapabilities.DevicePlatform.IOS)) {
+            return title_element.getAttribute("name");
+        } else {
+            return title_element.getText();
+        }
+    }
 
     public void addArticleToMyList(String name_of_folder) {
         waitForElementAndClick(OPTIONS_BUTTON,10);
@@ -70,10 +95,10 @@ public class ArticlePageObject extends MainPageObject {
     }
 
     public void removeArticleFromSavedIfItsAdded() {
-//        if (isElementPresent(OPTIONS_REMOVE_FROM_MY_LIST_BUTTON)) {
-//            waitForElementAndClick(OPTIONS_REMOVE_FROM_MY_LIST_BUTTON,1);
-//            waitForElementPresent(OPTIONS_ADD_TO_MY_LIST_BUTTON,1);
-//        }
+        if (isElementPresent(OPTIONS_REMOVE_FROM_MY_LIST_BUTTON, 1)) {
+            waitForElementAndClick(OPTIONS_REMOVE_FROM_MY_LIST_BUTTON,1);
+            waitForElementPresent(OPTIONS_ADD_TO_MY_LIST_BUTTON,1);
+        }
     }
 
     public boolean isLoginToSyncPopupAppears() {
@@ -115,7 +140,11 @@ public class ArticlePageObject extends MainPageObject {
     }
 
     public void closeArticle() {
-        waitForElementAndClick(CLOSE_ARTICLE_BUTTON, 5);
+        if (devicePlatform.equals(DeviceCapabilities.DevicePlatform.ANDROID) || devicePlatform.equals(DeviceCapabilities.DevicePlatform.IOS)) {
+            waitForElementAndClick(CLOSE_ARTICLE_BUTTON, 5);
+        } else {
+            System.out.println("Method closeArticle() does nothing for " + devicePlatform);
+        }
     }
 
 

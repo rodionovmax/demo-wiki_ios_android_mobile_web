@@ -7,7 +7,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 public class AndroidMyListsPageObject extends MyListsPageObject {
 
     static {
-        ARTICLE_BY_TITLE_TPL = "//*[@text='{TITLE}']";
+        ARTICLE_BY_TITLE_TPL = "//*[@text='{TITLE}']/..";
         FOLDER_OPTIONS = By.id("org.wikipedia:id/item_overflow_menu");
         DELETE_FOLDER = By.xpath("//*[@resource-id='org.wikipedia:id/title'][@text='Delete list']");
     }
