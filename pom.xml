@@ -34,7 +34,8 @@
                 <version>2.20</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                        <suiteXmlFile>testng_local.xml</suiteXmlFile>
+                        <suiteXmlFile>testng_sauce.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <reportsDirectory>./test-output/${timestamp}</reportsDirectory>
                     <reportsDirectory>./test-output/emailable</reportsDirectory>

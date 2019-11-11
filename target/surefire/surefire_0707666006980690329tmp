@@ -1,0 +1,6 @@
+#surefire_0
+#Sun Nov 10 15:07:10 EST 2019
+surefire.suiteXmlFiles=testng_sauce.xml
+user.dir=/Users/max/sandbox/demo/demo-framework_ios_android_web
+localRepository=/Users/max/.m2/repository
+basedir=/Users/max/sandbox/demo/demo-framework_ios_android_web

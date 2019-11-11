@@ -30,8 +30,9 @@ public class CoreTestCase {
 
 
     @BeforeMethod
-    @Parameters({"platform", "device", "os_version"})
-    public void setupAppium(@Optional("ios") String platform,
+    @Parameters({"environment", "platform", "device", "os_version"})
+    public void setupAppium(@Optional("local") String environment,
+                            @Optional("ios") String platform,
                             @Optional("iphone X") String device,
                             @Optional("ios 12.2") String os_version,
                             Method method, ITestContext context) throws Exception {
@@ -39,7 +40,7 @@ public class CoreTestCase {
         Reports.start(method.getName());
 
         // Initialize driver with capabilities
-        driver = capabilities.getDriver(platform, device, os_version);
+        driver = capabilities.getDriver(environment, platform, device, os_version, method.getName());
 //        wait = new WebDriverWait(driver, 20);
 
         main = new MainPageObject(driver);
@@ -64,6 +65,7 @@ public class CoreTestCase {
             Reports.fail(driver, testResult.getName());
         }
         Reports.stop();
+        driver.quit();
     }
 
     protected void rotateScreenPortrait()

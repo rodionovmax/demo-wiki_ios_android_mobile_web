@@ -7,6 +7,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import static com.demo.ui.test.DeviceCapabilities.devicePlatform;
 
+
 public class NavigationUI extends MainPageObject {
 
     public NavigationUI(RemoteWebDriver driver) {

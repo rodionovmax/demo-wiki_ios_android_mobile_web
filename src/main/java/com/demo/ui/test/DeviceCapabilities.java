@@ -7,12 +7,14 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
 public class DeviceCapabilities {
 
+    public Environment environment;
     public static DevicePlatform devicePlatform;
     public AppleDevice appleDevice;
     public AndroidDevice androidDevice;
@@ -21,9 +23,18 @@ public class DeviceCapabilities {
 
     private RemoteWebDriver driver;
 
-    public static final String APPIUM_URL = "http://127.0.0.1:4723/wd/hub";
+    public static final String APPIUM_LOCAL_URL = "http://127.0.0.1:4723/wd/hub";
+    //    public static final String APPIUM_SAUCE_URL = ("http://" + System.getenv("SAUCE_USERNAME") + ":" + System.getenv("SAUCE_ACCESS_KEY") + "@ondemand.saucelabs.com:80/wd/hub");
+    public static final String APPIUM_SAUCE_URL = ("http://max.rodionov:da9993dc-3abc-423a-9a7b-235671a6db33@ondemand.saucelabs.com:80/wd/hub");
     public static final String CURRENT_BUILD_IOS = "Wikipedia.app";
     public static final String CURRENT_BUILD_ANDROID = "org.wikipedia.apk";
+    public static final String SAUCE_USERNAME = "";
+    public static final String SAUCE_KEY = "";
+
+
+    public enum Environment {
+        LOCAL, SAUCELABS
+    }
 
     public enum DevicePlatform {
         ANDROID, IOS, MOBILE_WEB
@@ -41,12 +52,22 @@ public class DeviceCapabilities {
         NEXUS_5X, PIXEL_3A
     }
 
-        public enum AndroidVersion {
+    public enum AndroidVersion {
         ANDROID_9_0, ANDROID_10_0
     }
 
-    public RemoteWebDriver getDriver(String platform, String device, String os_version) throws Exception {
-        URL URL = new URL(APPIUM_URL);
+    public RemoteWebDriver getDriver(String env, String platform, String device, String os_version, String method) throws Exception {
+        URL URL = new URL(APPIUM_LOCAL_URL);
+        URL SAUCE_URL = new URL(APPIUM_SAUCE_URL);
+
+        if (env.equalsIgnoreCase("local")) {
+            environment = Environment.LOCAL;
+        } else if (env.equalsIgnoreCase("saucelabs")) {
+            environment = Environment.SAUCELABS;
+        } else {
+            System.out.println("Platform parameter wasn't recognized. Launching local");
+            environment = Environment.LOCAL;
+        }
 
         if (platform.equalsIgnoreCase("ios")) {
             devicePlatform = DevicePlatform.IOS;
@@ -89,92 +110,160 @@ public class DeviceCapabilities {
             appleDevice = AppleDevice.IPHONE_X;
         }
 
-        switch (devicePlatform) {
 
-            case ANDROID:
-                switch (androidVersion) {
+        switch (environment) {
+            case LOCAL:
+                switch (devicePlatform) {
 
-                    case ANDROID_9_0:
-                        switch (androidDevice) {
-                            case NEXUS_5X:
-                                driver = new AndroidDriver(URL, this.getCapabilitiesForNexus5XAndroid9());
+                    case ANDROID:
+                        switch (androidVersion) {
+
+                            case ANDROID_9_0:
+                                switch (androidDevice) {
+                                    case NEXUS_5X:
+                                        driver = new AndroidDriver(URL, this.getCapabilitiesForNexus5XAndroid9());
+                                        break;
+                                    case PIXEL_3A:
+                                        driver = new AndroidDriver(URL, this.getCapabilitiesForPixel3AAndroid9());
+                                        break;
+                                }
                                 break;
-                            case PIXEL_3A:
-                                driver = new AndroidDriver(URL, this.getCapabilitiesForPixel3AAndroid9());
+
+                            case ANDROID_10_0:
+                                switch (androidDevice) {
+                                    case NEXUS_5X:
+                                        driver = new AndroidDriver(URL, this.getCapabilitiesForNexus5XAndroid10());
+                                        break;
+                                    case PIXEL_3A:
+                                        driver = new AndroidDriver(URL, this.getCapabilitiesForPixel3AAndroid10());
+                                        break;
+                                }
                                 break;
                         }
                         break;
 
-                    case ANDROID_10_0:
-                        switch (androidDevice) {
-                            case NEXUS_5X:
-                                driver = new AndroidDriver(URL, this.getCapabilitiesForNexus5XAndroid10());
+                    case IOS:
+                        switch (iosVersion) {
+
+                            case IOS_12_2:
+                                switch (appleDevice) {
+                                    case IPHONE_7:
+                                        driver = new IOSDriver(URL, this.getCapabilitiesForIphone7Ios12_2());
+                                        break;
+                                    case IPHONE_X:
+                                        driver = new IOSDriver(URL, this.getCapabilitiesForIphoneXIos12_2());
+                                        break;
+                                    case IPAD_PRO_9_7_INCH:
+                                        driver = new IOSDriver(URL, this.getCapabilitiesForIpadPro9_7InchIos12_2());
+                                        break;
+                                }
                                 break;
-                            case PIXEL_3A:
-                                driver = new AndroidDriver(URL, this.getCapabilitiesForPixel3AAndroid10());
+
+                            case IOS_12_4:
+                                switch (appleDevice) {
+                                    case IPHONE_7:
+                                        driver = new IOSDriver(URL, this.getCapabilitiesForIphone7Ios12_4());
+                                        break;
+                                    case IPHONE_X:
+                                        driver = new IOSDriver(URL, this.getCapabilitiesForIphoneXIos12_4());
+                                        break;
+                                    case IPAD_PRO_9_7_INCH:
+                                        driver = new IOSDriver(URL, this.getCapabilitiesForIpadPro9_7InchIos12_4());
+                                        break;
+                                }
+                                break;
+
+                            case IOS_13_1:
+                                switch (appleDevice) {
+                                    case IPHONE_7:
+                                        driver = new IOSDriver(URL, this.getCapabilitiesForIphone7Ios13_1());
+                                        break;
+                                    case IPHONE_X:
+                                        driver = new IOSDriver(URL, this.getCapabilitiesForIphoneXIos13_1());
+                                        break;
+                                    case IPAD_PRO_9_7_INCH:
+                                        driver = new IOSDriver(URL, this.getCapabilitiesForIpadPro9_7InchIos13_1());
+                                        break;
+                                }
+                                break;
+                        }
+                        break;
+
+                    case MOBILE_WEB:
+                        System.out.println("Mobile Chrome");
+                        Map<String, String> mobileEmulation = new HashMap<String, String>();
+                        mobileEmulation.put("deviceName", "Pixel 2");
+                        ChromeOptions chromeOptions = new ChromeOptions();
+                        chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
+                        System.setProperty("webdriver.chrome.driver", "chromedriver");
+                        driver = new ChromeDriver(chromeOptions);
+                        driver.get("chrome://settings/clearBrowserData");
+                        break;
+
+                }
+                break;
+
+            case SAUCELABS:
+                switch (devicePlatform) {
+
+                    case ANDROID:
+                        switch (androidVersion) {
+
+                            case ANDROID_9_0:
+                                switch (androidDevice) {
+                                    case NEXUS_5X:
+                                        driver = new AndroidDriver(SAUCE_URL, this.getCapabilitiesForNexus5XSauceLabs());
+                                        break;
+                                    case PIXEL_3A:
+                                        driver = new AndroidDriver(SAUCE_URL, this.getCapabilitiesForPixel3ASauceLabs());
+                                        break;
+                                }
+                                break;
+
+                            case ANDROID_10_0:
+                                switch (androidDevice) {
+                                    case NEXUS_5X:
+//                                        driver = new AndroidDriver(SAUCE_URL, this.getCapabilitiesForNexus5XSauceLabs());
+                                        System.out.println("Here will be caps for Nexus 5X Android 10.0");
+                                        break;
+                                    case PIXEL_3A:
+//                                        driver = new AndroidDriver(SAUCE_URL, this.getCapabilitiesForPixel3ASauceLabs());
+                                        System.out.println("Here will be caps for Pixel 3A Android 10.0");
+                                        break;
+                                }
+                                break;
+                        }
+                        break;
+
+                    case IOS:
+                        switch (iosVersion) {
+
+                            case IOS_12_2:
+                                switch (appleDevice) {
+                                    case IPHONE_7:
+                                        driver = new IOSDriver(SAUCE_URL, this.getCapabilitiesForIphone7SauceLabs());
+                                        break;
+                                    case IPHONE_X:
+                                        driver = new IOSDriver(SAUCE_URL, this.getCapabilitiesForIphoneXSauceLabs());
+                                        break;
+                                }
+                                break;
+
+                            case IOS_13_1:
+                                switch (appleDevice) {
+                                    case IPHONE_7:
+//                                        driver = new IOSDriver(SAUCE_URL, this.getCapabilitiesForIphone7SauceLabs());
+                                        System.out.println("Here will be caps for iPhone 7 iOS 13.1");
+                                        break;
+                                    case IPHONE_X:
+//                                        driver = new IOSDriver(SAUCE_URL, this.getCapabilitiesForIphoneXSauceLabs());
+                                        System.out.println("Here will be caps for iPhone X iOS 13.1");
+                                        break;
+                                }
                                 break;
                         }
                         break;
                 }
-                break;
-
-            case IOS:
-                switch (iosVersion) {
-
-                    case IOS_12_2:
-                        switch (appleDevice) {
-                            case IPHONE_7:
-                                driver = new IOSDriver(URL, this.getCapabilitiesForIphone7Ios12_2());
-                                break;
-                            case IPHONE_X:
-                                driver = new IOSDriver(URL, this.getCapabilitiesForIphoneXIos12_2());
-                                break;
-                            case IPAD_PRO_9_7_INCH:
-                                driver = new IOSDriver(URL, this.getCapabilitiesForIpadPro9_7InchIos12_2());
-                                break;
-                        }
-                        break;
-
-                    case IOS_12_4:
-                        switch (appleDevice) {
-                            case IPHONE_7:
-                                driver = new IOSDriver(URL, this.getCapabilitiesForIphone7Ios12_4());
-                                break;
-                            case IPHONE_X:
-                                driver = new IOSDriver(URL, this.getCapabilitiesForIphoneXIos12_4());
-                                break;
-                            case IPAD_PRO_9_7_INCH:
-                                driver = new IOSDriver(URL, this.getCapabilitiesForIpadPro9_7InchIos12_4());
-                                break;
-                        }
-                        break;
-
-                    case IOS_13_1:
-                        switch (appleDevice) {
-                            case IPHONE_7:
-                                driver = new IOSDriver(URL, this.getCapabilitiesForIphone7Ios13_1());
-                                break;
-                            case IPHONE_X:
-                                driver = new IOSDriver(URL, this.getCapabilitiesForIphoneXIos13_1());
-                                break;
-                            case IPAD_PRO_9_7_INCH:
-                                driver = new IOSDriver(URL, this.getCapabilitiesForIpadPro9_7InchIos13_1());
-                                break;
-                        }
-                        break;
-                }
-                break;
-
-            case MOBILE_WEB:
-                System.out.println("Mobile Chrome");
-                Map<String, String> mobileEmulation = new HashMap<String, String>();
-                mobileEmulation.put("deviceName", "Pixel 2");
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
-                System.setProperty("webdriver.chrome.driver", "chromedriver");
-                driver = new ChromeDriver(chromeOptions);
-                driver.get("chrome://settings/clearBrowserData");
-                break;
         }
 
         return driver;
@@ -206,6 +295,33 @@ public class DeviceCapabilities {
         return capabilities;
     }
 
+    private DesiredCapabilities getCapabilitiesForNexus5XSauceLabs() {
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//
+//        capabilities.setCapability("platformName", "Android");
+//        capabilities.setCapability("platformVersion", "10.0");
+//        capabilities.setCapability("deviceName", "Nexus 5X GoogleAPI Emulator");
+//        capabilities.setCapability("browserName", "");
+//        capabilities.setCapability("deviceOrientation", "portrait");
+//        capabilities.setCapability("appiumVersion", "1.15.0");
+////        capabilities.setCapability("name", methodName);
+//        capabilities.setCapability("app", "sauce-storage:wiki_apk.apk");
+////        capabilities.setCapability("build", "Java-TestNG-Appium-Android");
+//        return capabilities;
+
+        DesiredCapabilities caps = DesiredCapabilities.android();
+        caps.setCapability("appiumVersion", "1.13.0");
+        caps.setCapability("deviceName", "Google Pixel 3 GoogleAPI Emulator");
+        caps.setCapability("deviceOrientation", "portrait");
+        caps.setCapability("browserName", "");
+        caps.setCapability("platformVersion", "9.0");
+        caps.setCapability("platformName", "Android");
+        caps.setCapability("app", "sauce-storage:wiki_apk.apk");
+//        caps.setCapability("app","sauce-storage:wiki_apk.apk");
+        return caps;
+    }
+
+
     private DesiredCapabilities getCapabilitiesForPixel3AAndroid9() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -232,6 +348,32 @@ public class DeviceCapabilities {
         return capabilities;
     }
 
+    private DesiredCapabilities getCapabilitiesForPixel3ASauceLabs() {
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//
+//        capabilities.setCapability("platformName", "Android");
+//        capabilities.setCapability("platformVersion", "10.0");
+//        capabilities.setCapability("deviceName", "Pixel 3A GoogleAPI Emulator");
+//        capabilities.setCapability("browserName", "");
+//        capabilities.setCapability("deviceOrientation", "portrait");
+//        capabilities.setCapability("appiumVersion", "1.15.0");
+////        capabilities.setCapability("name", methodName);
+//        capabilities.setCapability("app", "sauce-storage:wiki_apk.apk");
+////        capabilities.setCapability("build", "Java-TestNG-Appium-Android");
+//        return capabilities;
+
+        DesiredCapabilities caps = DesiredCapabilities.android();
+        caps.setCapability("appiumVersion", "1.13.0");
+        caps.setCapability("deviceName", "Google Pixel 3 GoogleAPI Emulator");
+        caps.setCapability("deviceOrientation", "portrait");
+        caps.setCapability("browserName", "");
+        caps.setCapability("platformVersion", "9.0");
+        caps.setCapability("platformName", "Android");
+        caps.setCapability("app", "sauce-storage:wiki_apk.apk");
+//        caps.setCapability("app","sauce-storage:wiki_apk.apk");
+        return caps;
+    }
+
     private DesiredCapabilities getCapabilitiesForIphone7Ios12_2() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -245,6 +387,33 @@ public class DeviceCapabilities {
         return capabilities;
     }
 
+    private DesiredCapabilities getCapabilitiesForIphone7SauceLabs() {
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//
+//        capabilities.setCapability("platformName", "iOS");
+//        capabilities.setCapability("platformVersion", "12.2");
+//        capabilities.setCapability("deviceName", "iPhone 7 Simulator");
+////        capabilities.setCapability("deviceName", "iPhone 7");
+//        capabilities.setCapability("browserName", "");
+//        capabilities.setCapability("deviceOrientation", "portrait");
+//        capabilities.setCapability("appiumVersion", "1.15.0");
+////        capabilities.setCapability("name", methodName);
+////        capabilities.setCapability("build","Java-TestNG-Appium-iOS");
+//        capabilities.setCapability("app", "Wikipedia.zip");
+//        return capabilities;
+
+        DesiredCapabilities caps = DesiredCapabilities.iphone();
+        caps.setCapability("appiumVersion", "1.13.0");
+        caps.setCapability("deviceName", "iPhone 7 Simulator");
+        caps.setCapability("deviceOrientation", "portrait");
+        caps.setCapability("platformVersion", "12.2");
+        caps.setCapability("platformName", "iOS");
+        caps.setCapability("browserName", "");
+//        caps.setCapability("app","sauce-storage:Wikipedia.zip");
+        caps.setCapability("app", "sauce-storage:wiki_ios.zip");
+        return caps;
+    }
+
     private DesiredCapabilities getCapabilitiesForIphoneXIos12_2() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -255,6 +424,33 @@ public class DeviceCapabilities {
         capabilities.setCapability("connectHardwareKeyboard", false);
         capabilities.setCapability("app", System.getProperty("user.dir") + "/apks/" + CURRENT_BUILD_IOS);
         return capabilities;
+    }
+
+    private DesiredCapabilities getCapabilitiesForIphoneXSauceLabs() {
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//
+//        capabilities.setCapability("platformName", "iOS");
+//        capabilities.setCapability("platformVersion", "12.2");
+//        capabilities.setCapability("deviceName", "iPhone X Simulator");
+////        capabilities.setCapability("deviceName", "iPhone X");
+//        capabilities.setCapability("browserName", "");
+//        capabilities.setCapability("deviceOrientation", "portrait");
+//        capabilities.setCapability("appiumVersion", "1.15.0");
+////        capabilities.setCapability("name", methodName);
+////        capabilities.setCapability("build","Java-TestNG-Appium-iOS");
+//        capabilities.setCapability("app", "Wikipedia.zip");
+//        return capabilities;
+
+        DesiredCapabilities caps = DesiredCapabilities.iphone();
+        caps.setCapability("appiumVersion", "1.13.0");
+        caps.setCapability("deviceName", "iPhone X Simulator");
+        caps.setCapability("deviceOrientation", "portrait");
+        caps.setCapability("platformVersion", "12.2");
+        caps.setCapability("platformName", "iOS");
+        caps.setCapability("browserName", "");
+//        caps.setCapability("app", "sauce-storage:Wikipedia.zip");
+        caps.setCapability("app", "sauce-storage:wiki_ios.zip");
+        return caps;
     }
 
     private DesiredCapabilities getCapabilitiesForIpadPro9_7InchIos12_2() {

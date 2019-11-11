@@ -8,6 +8,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import static com.demo.ui.test.DeviceCapabilities.devicePlatform;
 
+
 public class ArticlePageObject extends MainPageObject {
 
     public ArticlePageObject(RemoteWebDriver driver) {
@@ -44,7 +45,7 @@ public class ArticlePageObject extends MainPageObject {
 //    }
 
     public WebElement waitForTitleElement() {
-//        if (devicePlatform.equals(DeviceCapabilities.DevicePlatform.IOS)) {
+//        if (devicePlatform.equals(DeviceCapabilities3.DevicePlatform.IOS)) {
 //            String title = getArticleStringByTitle(article_title);
 //            return waitForElementPresent(By.id(title), 5);
 //        }

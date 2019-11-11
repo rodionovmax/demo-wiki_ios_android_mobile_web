@@ -132,11 +132,11 @@ public class MyListsPageObject extends MainPageObject {
 
 //    public void myListForAndroid() {
 //
-//        if (devicePlatform.equals(DeviceCapabilities.DevicePlatform.ANDROID)) {
+//        if (devicePlatform.equals(DeviceCapabilities3.DevicePlatform.ANDROID)) {
 //            System.out.println("I called method from MyListsPageObjectFactory class for ANDROID and it worked");
-//        } else if (devicePlatform.equals(DeviceCapabilities.DevicePlatform.IOS)){
+//        } else if (devicePlatform.equals(DeviceCapabilities3.DevicePlatform.IOS)){
 //            System.out.println("I called method from MyListsPageObjectFactory class for IOS and it worked");
-//        } else if (devicePlatform.equals(DeviceCapabilities.DevicePlatform.MOBILE_WEB)) {
+//        } else if (devicePlatform.equals(DeviceCapabilities3.DevicePlatform.MOBILE_WEB)) {
 //            System.out.println("I called method from MyListsPageObjectFactory class for MOBILE WEB and it worked");
 //        } else {
 //            System.out.println("something wrong here");

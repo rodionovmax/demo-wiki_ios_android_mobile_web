@@ -1,0 +1,67 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<!--<suite name="All Tests Suite" parallel="tests" thread-count="3" verbose="5">-->
+<suite name="All Tests Suite" parallel="methods" thread-count="2">
+
+<!--    <listeners>-->
+<!--        <listener class-name="org.uncommons.reportng.HTMLReporter"/>-->
+<!--        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>-->
+<!--    </listeners>-->
+
+    <test name="Pixel 3A API 29">
+        <parameter name="environment" value="local"/>
+        <parameter name="platform" value="android"/>
+        <parameter name="device" value="pixel 3a"/>
+        <parameter name="os_version" value="android 10.0"/>
+        <groups>
+            <run>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.demo.ui.test.tests.MyListTests">
+                <methods>
+                    <include name="saveArticleToMyListAndDelete" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+    <test name="iPhone X iOS 12.2">
+        <parameter name="environment" value="local"/>
+        <parameter name="platform" value="ios"/>
+        <parameter name="device" value="iphone X"/>
+        <parameter name="os_version" value="ios 12.2"/>
+        <groups>
+            <run>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.demo.ui.test.tests.MyListTests">
+                <methods>
+                    <include name="saveArticleToMyListAndDelete" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Mobile Web">
+        <parameter name="environment" value="local"/>
+        <parameter name="platform" value="mobile_web"/>
+<!--        <parameter name="device" value = "null"/>-->
+<!--        <parameter name="os_version" value="null"/>-->
+        <groups>
+            <run>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.demo.ui.test.tests.MyListTests">
+                <methods>
+                    <include name="saveArticleToMyListAndDelete" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+</suite>
