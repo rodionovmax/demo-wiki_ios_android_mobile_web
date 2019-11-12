@@ -3,35 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c478057e-94fe-42b4-834e-a2ff1d4dd606" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/Suite/fail_saveArticleToMyListAndDelete_16-19-15.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/Suite/fail_saveArticleToMyListAndDelete_16-54-59.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/Suite/fail_saveArticleToMyListAndDelete_17-04-13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/Suite/fail_saveArticleToMyListAndDelete_17-33-20.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/Suite/fail_saveArticleToMyListAndDelete_17-38-51.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/Suite/fail_saveArticleToMyListAndDelete_17-41-00.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/Suite/fail_saveArticleToMyListAndDelete_17-43-49.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/Suite/fail_saveArticleToMyListAndDelete_17-49-16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/Suite/fail_saveArticleToMyListAndDelete_17-50-58.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/Suite/fail_saveArticleToMyListAndDelete_17-55-23.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/Suite/fail_saveArticleToMyListAndDelete_22-00-32.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/reports/Suite/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/reports/Suite/report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/ui/test/DeviceCapabilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ui/test/DeviceCapabilities3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/ui/test/pageobjects/ArticlePageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ui/test/pageobjects/ArticlePageObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/ui/test/pageobjects/MyListsPageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ui/test/pageobjects/MyListsPageObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/ui/test/pageobjects/NavigationUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ui/test/pageobjects/NavigationUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/demo/ui/test/CoreTestCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/demo/ui/test/CoreTestCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/demo/ui/test/DeviceCapabilities$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/demo/ui/test/DeviceCapabilities$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/demo/ui/test/DeviceCapabilities$AndroidDevice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/demo/ui/test/DeviceCapabilities$AndroidDevice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/demo/ui/test/DeviceCapabilities$AndroidVersion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/demo/ui/test/DeviceCapabilities$AndroidVersion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/demo/ui/test/DeviceCapabilities$AppleDevice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/demo/ui/test/DeviceCapabilities$AppleDevice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/demo/ui/test/DeviceCapabilities$DevicePlatform.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/demo/ui/test/DeviceCapabilities$DevicePlatform.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/demo/ui/test/DeviceCapabilities$IOSVersion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/demo/ui/test/DeviceCapabilities$IOSVersion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/demo/ui/test/DeviceCapabilities.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/demo/ui/test/DeviceCapabilities.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/demo/ui/test/pageobjects/ArticlePageObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/demo/ui/test/pageobjects/ArticlePageObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/demo/ui/test/pageobjects/NavigationUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/demo/ui/test/pageobjects/NavigationUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/demo/ui/test/CoreTestCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/demo/ui/test/CoreTestCase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/testng_local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/ui/test/DeviceCapabilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ui/test/DeviceCapabilities.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -46,18 +19,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/demo/ui/test/tests/MyListTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="101" column="40" selection-start-line="101" selection-start-column="16" selection-end-line="101" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ui/test/android/AndroidMyListsPageObject.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -97,22 +58,31 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testng_local.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
+            <state relative-caret-position="-66">
               <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ui/test/DeviceCapabilities.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="209" selection-start-line="209" selection-end-line="209" />
+            <state relative-caret-position="-2663">
+              <caret line="58" column="12" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testng_real_device.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testng_sauce.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
@@ -124,7 +94,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-311">
+            <state relative-caret-position="555">
               <caret line="37" column="50" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
             </state>
           </provider>
@@ -133,7 +103,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ui/test/DeviceCapabilities3.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-6726">
+            <state relative-caret-position="195">
               <caret line="13" column="32" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -219,10 +189,11 @@
         <option value="$PROJECT_DIR$/src/test/java/com/demo/ui/test/tests/MyListTests.java" />
         <option value="$PROJECT_DIR$/testng.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/demo/ui/test/CoreTestCase.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ui/test/DeviceCapabilities.java" />
         <option value="$PROJECT_DIR$/testng_local.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/testng_sauce.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ui/test/DeviceCapabilities.java" />
+        <option value="$PROJECT_DIR$/testng_real_device.xml" />
       </list>
     </option>
   </component>
@@ -233,9 +204,11 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="35" />
+    <option name="y" value="23" />
+    <option name="width" value="1405" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -249,11 +222,6 @@
             <path>
               <item name="demo-framework_ios_android_web" type="b2602c69:ProjectViewProjectNode" />
               <item name="demo-framework_ios_android_web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo-framework_ios_android_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="demo-framework_ios_android_web" type="462c0819:PsiDirectoryNode" />
-              <item name="apks" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="demo-framework_ios_android_web" type="b2602c69:ProjectViewProjectNode" />
@@ -380,21 +348,21 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
+    <key name="CreateClassDialog.RecentsKey">
       <recent name="com.demo.ui.test" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.demo.ui.test" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.demo.ui.test" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/com/demo/ui/test" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.demo.ui.test" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -409,24 +377,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG./Users/max/sandbox/demo/demo-framework_ios_android_web/testng_sauce.xml">
-    <configuration name="MyListTests" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="demo-framework-ios_android_web" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.demo.ui.test.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.demo.ui.test.tests" />
-      <option name="MAIN_CLASS_NAME" value="com.demo.ui.test.tests.MyListTests" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="TestNG./Users/max/sandbox/demo/demo-framework_ios_android_web/testng_real_device.xml">
     <configuration name="MyListTests.saveArticleToMyListAndDelete" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="demo-framework-ios_android_web" />
       <extension name="coverage">
@@ -465,6 +416,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="/Users/max/sandbox/demo/demo-framework_ios_android_web/testng_real_device.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="demo-framework-ios_android_web" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/testng_real_device.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="/Users/max/sandbox/demo/demo-framework_ios_android_web/testng_sauce.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="demo-framework-ios_android_web" />
       <option name="SUITE_NAME" value="$PROJECT_DIR$/testng_sauce.xml" />
@@ -477,11 +438,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG./Users/max/sandbox/demo/demo-framework_ios_android_web/testng_real_device.xml" />
         <item itemvalue="TestNG./Users/max/sandbox/demo/demo-framework_ios_android_web/testng_sauce.xml" />
         <item itemvalue="TestNG./Users/max/sandbox/demo/demo-framework_ios_android_web/testng_local.xml" />
         <item itemvalue="TestNG./Users/max/sandbox/demo-framework/testng.xml" />
         <item itemvalue="TestNG.MyListTests.saveArticleToMyListAndDelete" />
-        <item itemvalue="TestNG.MyListTests" />
       </list>
     </recent_temporary>
   </component>
@@ -532,9 +493,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23319027" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2360515" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -543,7 +503,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32771084" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.35421687" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35421687" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -600,13 +560,7 @@
     <entry file="file://$PROJECT_DIR$/reports/Suite/fail_saveArticleToMyListAndDelete_16-05-47.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ui/test/DeviceCapabilities2_.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ui/test/DeviceCapabilities2_.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ui/test/Reports.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="423">
@@ -846,10 +800,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ui/test/android/AndroidNavigationUI.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/demo/ui/test/tests/MyListTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+        <state relative-caret-position="1515">
+          <caret line="101" column="40" selection-start-line="101" selection-start-column="16" selection-end-line="101" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -876,6 +830,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="50" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ui/test/DeviceCapabilities3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="32" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ui/test/android/AndroidNavigationUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testng_sauce.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/demo/ui/test/CoreTestCase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -888,49 +876,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/testng_local.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
+        <state relative-caret-position="-66">
           <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/demo/ui/test/tests/MyListTests.java">
+    <entry file="file://$PROJECT_DIR$/testng_real_device.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="101" column="40" selection-start-line="101" selection-start-column="16" selection-end-line="101" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-311">
-          <caret line="37" column="50" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ui/test/DeviceCapabilities3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6726">
-          <caret line="13" column="32" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="405">
+          <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ui/test/DeviceCapabilities.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="209" selection-start-line="209" selection-end-line="209" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testng_sauce.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+        <state relative-caret-position="-2663">
+          <caret line="58" column="12" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
         </state>
       </provider>
     </entry>

@@ -7,7 +7,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,7 +32,7 @@ public class DeviceCapabilities {
 
 
     public enum Environment {
-        LOCAL, SAUCELABS
+        REAL_DEVICE, LOCAL_EMULATORS, SAUCELABS
     }
 
     public enum DevicePlatform {
@@ -61,12 +60,14 @@ public class DeviceCapabilities {
         URL SAUCE_URL = new URL(APPIUM_SAUCE_URL);
 
         if (env.equalsIgnoreCase("local")) {
-            environment = Environment.LOCAL;
+            environment = Environment.LOCAL_EMULATORS;
         } else if (env.equalsIgnoreCase("saucelabs")) {
             environment = Environment.SAUCELABS;
+        } else if (env.equalsIgnoreCase("device")) {
+            environment = Environment.REAL_DEVICE;
         } else {
             System.out.println("Platform parameter wasn't recognized. Launching local");
-            environment = Environment.LOCAL;
+            environment = Environment.LOCAL_EMULATORS;
         }
 
         if (platform.equalsIgnoreCase("ios")) {
@@ -112,7 +113,7 @@ public class DeviceCapabilities {
 
 
         switch (environment) {
-            case LOCAL:
+            case LOCAL_EMULATORS:
                 switch (devicePlatform) {
 
                     case ANDROID:
@@ -264,6 +265,16 @@ public class DeviceCapabilities {
                         }
                         break;
                 }
+            case REAL_DEVICE:
+                switch (devicePlatform) {
+                    case ANDROID:
+                        driver = new AndroidDriver(URL, this.getCapabilitiesForRealDeviceAndroid());
+                        break;
+
+                    case IOS:
+                        System.out.println("Here will be caps for real iOS device");
+                        break;
+                }
         }
 
         return driver;
@@ -296,20 +307,8 @@ public class DeviceCapabilities {
     }
 
     private DesiredCapabilities getCapabilitiesForNexus5XSauceLabs() {
-//        DesiredCapabilities capabilities = new DesiredCapabilities();
-//
-//        capabilities.setCapability("platformName", "Android");
-//        capabilities.setCapability("platformVersion", "10.0");
-//        capabilities.setCapability("deviceName", "Nexus 5X GoogleAPI Emulator");
-//        capabilities.setCapability("browserName", "");
-//        capabilities.setCapability("deviceOrientation", "portrait");
-//        capabilities.setCapability("appiumVersion", "1.15.0");
-////        capabilities.setCapability("name", methodName);
-//        capabilities.setCapability("app", "sauce-storage:wiki_apk.apk");
-////        capabilities.setCapability("build", "Java-TestNG-Appium-Android");
-//        return capabilities;
-
         DesiredCapabilities caps = DesiredCapabilities.android();
+
         caps.setCapability("appiumVersion", "1.13.0");
         caps.setCapability("deviceName", "Google Pixel 3 GoogleAPI Emulator");
         caps.setCapability("deviceOrientation", "portrait");
@@ -317,7 +316,6 @@ public class DeviceCapabilities {
         caps.setCapability("platformVersion", "9.0");
         caps.setCapability("platformName", "Android");
         caps.setCapability("app", "sauce-storage:wiki_apk.apk");
-//        caps.setCapability("app","sauce-storage:wiki_apk.apk");
         return caps;
     }
 
@@ -349,20 +347,8 @@ public class DeviceCapabilities {
     }
 
     private DesiredCapabilities getCapabilitiesForPixel3ASauceLabs() {
-//        DesiredCapabilities capabilities = new DesiredCapabilities();
-//
-//        capabilities.setCapability("platformName", "Android");
-//        capabilities.setCapability("platformVersion", "10.0");
-//        capabilities.setCapability("deviceName", "Pixel 3A GoogleAPI Emulator");
-//        capabilities.setCapability("browserName", "");
-//        capabilities.setCapability("deviceOrientation", "portrait");
-//        capabilities.setCapability("appiumVersion", "1.15.0");
-////        capabilities.setCapability("name", methodName);
-//        capabilities.setCapability("app", "sauce-storage:wiki_apk.apk");
-////        capabilities.setCapability("build", "Java-TestNG-Appium-Android");
-//        return capabilities;
-
         DesiredCapabilities caps = DesiredCapabilities.android();
+
         caps.setCapability("appiumVersion", "1.13.0");
         caps.setCapability("deviceName", "Google Pixel 3 GoogleAPI Emulator");
         caps.setCapability("deviceOrientation", "portrait");
@@ -370,7 +356,6 @@ public class DeviceCapabilities {
         caps.setCapability("platformVersion", "9.0");
         caps.setCapability("platformName", "Android");
         caps.setCapability("app", "sauce-storage:wiki_apk.apk");
-//        caps.setCapability("app","sauce-storage:wiki_apk.apk");
         return caps;
     }
 
@@ -388,28 +373,14 @@ public class DeviceCapabilities {
     }
 
     private DesiredCapabilities getCapabilitiesForIphone7SauceLabs() {
-//        DesiredCapabilities capabilities = new DesiredCapabilities();
-//
-//        capabilities.setCapability("platformName", "iOS");
-//        capabilities.setCapability("platformVersion", "12.2");
-//        capabilities.setCapability("deviceName", "iPhone 7 Simulator");
-////        capabilities.setCapability("deviceName", "iPhone 7");
-//        capabilities.setCapability("browserName", "");
-//        capabilities.setCapability("deviceOrientation", "portrait");
-//        capabilities.setCapability("appiumVersion", "1.15.0");
-////        capabilities.setCapability("name", methodName);
-////        capabilities.setCapability("build","Java-TestNG-Appium-iOS");
-//        capabilities.setCapability("app", "Wikipedia.zip");
-//        return capabilities;
-
         DesiredCapabilities caps = DesiredCapabilities.iphone();
+
         caps.setCapability("appiumVersion", "1.13.0");
         caps.setCapability("deviceName", "iPhone 7 Simulator");
         caps.setCapability("deviceOrientation", "portrait");
         caps.setCapability("platformVersion", "12.2");
         caps.setCapability("platformName", "iOS");
         caps.setCapability("browserName", "");
-//        caps.setCapability("app","sauce-storage:Wikipedia.zip");
         caps.setCapability("app", "sauce-storage:wiki_ios.zip");
         return caps;
     }
@@ -427,28 +398,14 @@ public class DeviceCapabilities {
     }
 
     private DesiredCapabilities getCapabilitiesForIphoneXSauceLabs() {
-//        DesiredCapabilities capabilities = new DesiredCapabilities();
-//
-//        capabilities.setCapability("platformName", "iOS");
-//        capabilities.setCapability("platformVersion", "12.2");
-//        capabilities.setCapability("deviceName", "iPhone X Simulator");
-////        capabilities.setCapability("deviceName", "iPhone X");
-//        capabilities.setCapability("browserName", "");
-//        capabilities.setCapability("deviceOrientation", "portrait");
-//        capabilities.setCapability("appiumVersion", "1.15.0");
-////        capabilities.setCapability("name", methodName);
-////        capabilities.setCapability("build","Java-TestNG-Appium-iOS");
-//        capabilities.setCapability("app", "Wikipedia.zip");
-//        return capabilities;
-
         DesiredCapabilities caps = DesiredCapabilities.iphone();
+
         caps.setCapability("appiumVersion", "1.13.0");
         caps.setCapability("deviceName", "iPhone X Simulator");
         caps.setCapability("deviceOrientation", "portrait");
         caps.setCapability("platformVersion", "12.2");
         caps.setCapability("platformName", "iOS");
         caps.setCapability("browserName", "");
-//        caps.setCapability("app", "sauce-storage:Wikipedia.zip");
         caps.setCapability("app", "sauce-storage:wiki_ios.zip");
         return caps;
     }
@@ -534,6 +491,19 @@ public class DeviceCapabilities {
         capabilities.setCapability("deviceName", "iPad Pro (9.7-inch)");
         capabilities.setCapability("connectHardwareKeyboard", false);
         capabilities.setCapability("app", System.getProperty("user.dir") + "/apks/" + CURRENT_BUILD_IOS);
+        return capabilities;
+    }
+
+    private DesiredCapabilities getCapabilitiesForRealDeviceAndroid() {
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+
+        capabilities.setCapability("platformName", "Android");
+        capabilities.setCapability("deviceName", "My Samsung Galaxy S9");
+        capabilities.setCapability("udid", "3830563551313498");
+        capabilities.setCapability("platformVersion", "8.0.0");
+        capabilities.setCapability("automationName", "Appium");
+        capabilities.setCapability("appPackage", "org.wikipedia");
+        capabilities.setCapability("appActivity", "main.MainActivity");
         return capabilities;
     }
 }

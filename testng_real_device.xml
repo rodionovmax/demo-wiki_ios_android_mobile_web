@@ -1,0 +1,37 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<!--<suite name="All Tests Suite" parallel="tests" thread-count="3" verbose="5">-->
+<suite name="Test Suite Sauce Labs" parallel="tests" thread-count="2">
+
+<!--    <listeners>-->
+<!--        <listener class-name="org.uncommons.reportng.HTMLReporter"/>-->
+<!--        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>-->
+<!--    </listeners>-->
+
+
+
+    <test name="Real Device Android">
+        <parameter name="environment" value="device"/>
+        <parameter name="platform" value="android"/>
+<!--        <parameter name="device" value = "iphone X"/>-->
+<!--        <parameter name="os_version" value="ios 12.2"/>-->
+        <groups>
+            <run>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.demo.ui.test.tests.MyListTests">
+                <methods>
+                    <include name="saveArticleToMyListAndDelete" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+
+
+
+
+
+</suite>
